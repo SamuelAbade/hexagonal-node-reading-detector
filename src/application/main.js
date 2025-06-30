@@ -33,10 +33,10 @@ const ReadingAnalyzer = require('../domain/ReadingAnalyzer');
     const analyzer = new ReadingAnalyzer();
     const susp = analyzer.detectSuspicious(readings);
 
-    console.log('| Client ID        | Period   | Value     | Median    |');
+    console.log('| Client ID        | Period   | Suspicious  | Median    |');
     console.log('-------------------------------------------------------');
     susp.forEach(row => {
-      console.log(`| ${row.clientId.padEnd(16)} | ${row.period} | ${row.value.toString().padEnd(10)} | ${row.median.toString().padEnd(9)} |`);
+      console.log(`| ${row.clientId.padEnd(16)} | ${row.period.padEnd(8)} | ${row.value.toString().padEnd(11)} | ${row.median.toString().padEnd(9)} |`);
     });
   } catch (err) {
     console.error('Error procesando lecturas:', err.message);
